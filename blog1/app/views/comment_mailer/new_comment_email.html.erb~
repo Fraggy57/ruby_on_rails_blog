@@ -4,19 +4,22 @@
     <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
   </head>
   <body>
-    <h1>Dear <%= @post.name %>,</h1>
+    <p>Dear <%= @post.name %>,</p>
 	<br/>
-    <p>
+    </p>
       A comment has been added to your post '<%= @post.title %>'.
     </p>
-	<p>
+	<br/>
+	<h3>
       Commenter: <%= @comment.commenter %>.
-    </p>
-    <p>
+    </h3>
+    <h3>
       Comment: <%= @comment.body %>
-    </p>
+    </h3>
+	<br/>
 	<p>
-      Check the post: <%= link_to 'Go to post', show_post_path(@post)  %>
+	<% post = @post %>
+      Check the post: <%= link_to 'Go to post', post_url(@post, :only_path => false, :host => "88.198.9.226:4011") %>
     </p>
     <p>Happy blogging!</p>
   </body>
