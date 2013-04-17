@@ -21,7 +21,11 @@
 </p>
 
 <h2>Comments</h2>
-<%= render @post.comments %>
+	<%= form_tag destroyComments_path, method: :delete do %>
+    	<%= render @post.comments %>
+    	<%= submit_tag "Delete selected comments" , :confirm => 'Are you sure?'%>
+<% end %>
+
 
 <% if !@post.post_closed %>
   <h3>Add a comment:</h3>

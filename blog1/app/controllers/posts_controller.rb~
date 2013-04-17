@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-  http_basic_authenticate_with :name => "dhh", :password => "secret", :except => [:index, :show]
+  http_basic_authenticate_with :name => "name", :password => "password", :except => [:index, :show]
  
   # GET /posts
   # GET /posts.json
@@ -83,4 +83,14 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+ def destroy_comments
+	    Comment.destroy(params[:comments_to_delete])
+
+		respond_to do |format|
+			format.html { redirect_to :back, notice: 'Selected comments deleted.' }
+			format.json { head :no_content }
+    	end
+	end
+
 end

@@ -83,4 +83,14 @@ class PostsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+ def destroyComments
+	    Comment.destroy(params[:comments_to_delete])
+
+		respond_to do |format|
+			format.html { redirect_to :back, notice: 'Selected comments deleted.' }
+			format.json { head :no_content }
+    	end
+	end
+
 end
