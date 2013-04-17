@@ -21,7 +21,7 @@
 </p>
 
 <% if @post.comments.length > 0 %>
-<h2>Comments</h2>
+	<h2>Comments</h2>
 	<%= form_tag destroyComments_path, method: :delete do %>
     	<%= render @post.comments %>
     	<%= submit_tag "Delete selected comments" , :confirm => 'Are you sure?'%>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+  </head>
+  <body>
+    <h1>Dear <%= @post.name %>,</h1>
+	<br/>
+    <p>
+      A comment has been added to your post '<%= @post.title %>'.
+    </p>
+	<p>
+      Commenter: <%= @comment.commenter %>.
+    </p>
+    <p>
+      Comment: <%= @comment.body %>
+    </p>
+	<p>
+      Check the post: <%= link_to 'Go to post', @post  %>
+    </p>
+    <p>Happy blogging!</p>
+  </body>
+</html>

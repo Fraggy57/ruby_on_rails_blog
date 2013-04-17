@@ -20,12 +20,13 @@
   <%= join_tags(@post) %>
 </p>
 
-<h2>Comments</h2>
+<% if @post.comments.length > 0 %>
+	<h2>Comments</h2>
 	<%= form_tag destroyComments_path, method: :delete do %>
     	<%= render @post.comments %>
     	<%= submit_tag "Delete selected comments" , :confirm => 'Are you sure?'%>
 <% end %>
-
+<% end %>
 
 <% if !@post.post_closed %>
   <h3>Add a comment:</h3>
