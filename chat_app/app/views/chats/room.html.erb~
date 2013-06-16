@@ -2,11 +2,9 @@
 <script>
   $(function() {
     // Create a new client to connect to Faye
-<% if Rails.env.production? %>
-<% 		provide(:server_address, "88.198.9.226:4021/faye") %>
-<% else %>
-<% 		provide(:server_address, "http://localhost:9292/faye") %>
-
+	<% if Rails.env.production? %>
+	var client = new Faye.Client("http://88.198.9.226:4021/faye");
+	<% else %>
     var client = new Faye.Client("http://localhost:9292/faye");
 	<% end %>
 
