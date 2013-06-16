@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 
+
+<% if Rails.env.production? %>
+<%= javascript_include_tag "88.198.9.226:4021/faye.js" %>
+<% else %>
 <%= javascript_include_tag "http://localhost:9292/faye.js" %>
+<% end %>
 
 <html>
 	<head>
@@ -14,18 +19,13 @@
 	</head>
 	<body>
 		<%= render 'layouts/header' %>
+
 		<div class="container">
 		  <% flash.each do |key, value| %>
-		    <div class="alert alert-<%= key %>"><%= value %></div>
+				<div class="alert alert-<%= key %>"><%= value %></div>
 		  <% end %>
 		  <%= yield %>
-		  <%= render 'layouts/footer' %>
-		  <%= debug(params) if Rails.env.development? %>
 		</div>
-
-	<div class="container">
-      <%= yield %>
-    </div>
 
 	<%= debug(params) if Rails.env.development? %>
 
