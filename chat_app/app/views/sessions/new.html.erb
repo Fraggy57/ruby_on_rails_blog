@@ -1,7 +1,19 @@
 <% provide(:title, 'Login') %>
 <h1>Sessions#new</h1>
-<%= form_tag login_path do |f| %>
-  <%= label_tag :username %>
-  <%= text_field_tag :username %>
-  <%= submit_tag "Enter" %>
-<% end %>
+
+<div class="row">
+  <div class="span6 offset3">
+    <%= form_for(:session, url: sessions_path) do |f| %>
+
+      <%= f.label :email %>
+      <%= f.text_field :email %>
+
+      <%= f.label :password %>
+      <%= f.password_field :password %>
+
+      <%= f.submit "Sign in", class: "btn btn-large btn-primary" %>
+    <% end %>
+
+    <p>New user? <%= link_to "Register now!", register_path %></p>
+  </div>
+</div>

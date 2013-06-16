@@ -1,10 +1,11 @@
 FayeTutorial::Application.routes.draw do
   resources :users
-  resources :sessions
+  resources :sessions, only: [:new, :create, :destroy]
 
   root :to => "home#index"
 
   match '/register',    to: 'users#new'
+  match '/logout', to: 'sessions#destroy', via: :delete
 
   get  '/contact' => 'home#contact.html.erb'
 
