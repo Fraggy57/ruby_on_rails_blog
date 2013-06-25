@@ -17,7 +17,7 @@
     $('#new_message_form').submit(function(){
       // Publish the message to the public channel
       client.publish('/messages/public', {
-        username: '<%= session[:username] %>',
+        username: '<%= current_user.name %>',
         msg: $('#message').val()
       });
  
@@ -29,10 +29,10 @@
     });
   });
 </script>
-<h1>Chats#room</h1>
+<h1>Chat room</h1>
 <div class="chat_container">
   <div id="chat_room">
-    <p class="alert"> Welcome to the chat room <%= session[:username] %>! </p>
+    <p class="alert"> Welcome to the chat room <%= current_user.name %>! </p>
   </div>
  
   <form id="new_message_form">
